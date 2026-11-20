@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cthpcrtmqegqt"]
+
+[ext_resource type="Script" uid="uid://lnig3rbsffny" path="res://opening_cutscene.gd" id="1_e8074"]
+[ext_resource type="Texture2D" uid="uid://dv7gtibsludy4" path="res://Art/Crown.png" id="2_ufc1a"]
+
+[node name="OpeningCutscene" type="Node2D" unique_id=1151717786]
+script = ExtResource("1_e8074")
+
+[node name="ackground" type="Sprite2D" parent="." unique_id=2090741073]
+
+[node name="rincess" type="AnimatedSprite2D" parent="." unique_id=535470518]
+
+[node name="Dargon" type="AnimatedSprite2D" parent="." unique_id=1241980897]
+
+[node name="Crown" type="Sprite2D" parent="." unique_id=1511563200]
+position = Vector2(570, 350)
+scale = Vector2(2.1093752, 2.0625)
+texture = ExtResource("2_ufc1a")
+
+[node name="StoryText" type="Label" parent="." unique_id=2085436350]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="SkipButton" type="Button" parent="." unique_id=1497911656]
+offset_right = 8.0
+offset_bottom = 8.0
