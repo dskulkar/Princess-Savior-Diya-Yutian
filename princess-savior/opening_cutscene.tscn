@@ -8,10 +8,6 @@ script = ExtResource("1_e8074")
 
 [node name="ackground" type="Sprite2D" parent="." unique_id=2090741073]
 
-[node name="rincess" type="AnimatedSprite2D" parent="." unique_id=535470518]
-
-[node name="Dargon" type="AnimatedSprite2D" parent="." unique_id=1241980897]
-
 [node name="Crown" type="Sprite2D" parent="." unique_id=1511563200]
 position = Vector2(570, 350)
 scale = Vector2(2.1093752, 2.0625)
