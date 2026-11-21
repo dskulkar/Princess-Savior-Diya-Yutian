@@ -1,3 +1,43 @@
 [gd_scene format=3 uid="uid://b2udgngdmqpxi"]
 
-[node name="Player" type="Node2D" unique_id=2040326885]
+[ext_resource type="Script" uid="uid://b362u8jwmvp62" path="res://princess.gd" id="1_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cc4x80w715jut" path="res://Art/princess1.png" id="2_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://bgrbnw0oqaxwn" path="res://Art/princess2.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://ch7sjb111x72u" path="res://Art/princess3.png" id="4_dw050"]
+[ext_resource type="Texture2D" uid="uid://4paa4vtl2t52" path="res://Art/princess4.png" id="5_b26j0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kfubk"]
+radius = 19.026299
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfubk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2hs0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b26j0")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="princess" type="CharacterBody2D" unique_id=2114977263]
+motion_mode = 1
+script = ExtResource("1_sweqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005054644]
+shape = SubResource("CircleShape2D_kfubk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1661127165]
+sprite_frames = SubResource("SpriteFrames_kfubk")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.40875515
