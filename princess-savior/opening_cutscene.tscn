@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cthpcrtmqegqt"]
+[gd_scene format=3 uid="uid://d28puayv6s16m"]
 
-[ext_resource type="Script" uid="uid://lnig3rbsffny" path="res://opening_cutscene.gd" id="1_e8074"]
-[ext_resource type="Texture2D" uid="uid://c67rgu05fm6cy" path="res://Art/Crown.png" id="2_ufc1a"]
+[ext_resource type="Script" path="res://opening_cutscene.gd" id="1_e8074"]
+[ext_resource type="Texture2D" path="res://Art/Crown.png" id="2_ufc1a"]
 
 [node name="OpeningCutscene" type="Node2D" unique_id=1151717786]
 script = ExtResource("1_e8074")
@@ -17,15 +17,6 @@ texture = ExtResource("2_ufc1a")
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1911552266]
-
-[node name="SkipButton" type="Button" parent="CanvasLayer" unique_id=1497911656]
-offset_left = 991.0
-offset_top = 16.0
-offset_right = 1132.0
-offset_bottom = 76.0
-button_mask = 2
-text = "Skip"
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="CanvasLayer/SkipButton" to="." method="_on_skip_button_pressed"]
+[node name="SkipButton" type="Button" parent="." unique_id=1497911656]
+offset_right = 8.0
+offset_bottom = 8.0
