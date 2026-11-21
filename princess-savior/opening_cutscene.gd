@@ -3,11 +3,14 @@ extends Node2D
 
 @onready var crown: Sprite2D = $Crown
 
+
 func _ready() -> void:
 	play_crown_animation()
 
+
 func play_crown_animation() -> void:
 	crown.position = Vector2(570, 350)
+	crown.visible = true
 
 	await get_tree().create_timer(1.0).timeout
 
@@ -23,3 +26,7 @@ func play_crown_animation() -> void:
 	await tween.finished
 
 	crown.visible = false
+
+
+func _on_skip_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://level_1.tscn")
