@@ -1,3 +1,158 @@
-[gd_scene format=3 uid="uid://bmh4k6b6hyjqv"]
+[gd_scene format=4 uid="uid://bmh4k6b6hyjqv"]
+
+[ext_resource type="PackedScene" uid="uid://b2udgngdmqpxi" path="res://player.tscn" id="1_hbghi"]
+[ext_resource type="Texture2D" uid="uid://c0po5t1x1gnba" path="res://Art/background-level1.png" id="2_hn12h"]
+[ext_resource type="Script" uid="uid://lymqucmttfdw" path="res://chest.gd" id="3_5hph3"]
+[ext_resource type="Texture2D" uid="uid://cydlmhyidp2bg" path="res://Art/box-close.png" id="4_j7kpp"]
+[ext_resource type="Texture2D" uid="uid://bqfl5g5kged6b" path="res://Art/wand.png" id="5_bjebc"]
+[ext_resource type="Shader" uid="uid://7qemj7y0jo7h" path="res://level_1.gdshader" id="5_j7kpp"]
+[ext_resource type="Texture2D" uid="uid://c55ocykhhgvd5" path="res://Art/box-open.png" id="6_5rr72"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihfcg"]
+texture = ExtResource("2_hn12h")
+texture_region_size = Vector2i(9, 9)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+2:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tcxjo"]
+tile_size = Vector2i(9, 9)
+sources/0 = SubResource("TileSetAtlasSource_ihfcg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcxjo"]
+size = Vector2(244, 161.75)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcxjo"]
+shader = ExtResource("5_j7kpp")
+shader_parameter/glow_color = Color(0.3, 0.7, 1, 1)
+shader_parameter/glow_strength = 1.2
+shader_parameter/glow_speed = 2.0
+
+[sub_resource type="Animation" id="Animation_gyffv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_j7kpp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1040, 511.99997)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wand:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.47222218)]
+}
+
+[sub_resource type="Animation" id="Animation_1pe0h"]
+resource_name = "open_chest"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_j7kpp"), ExtResource("6_5rr72")]
+}
+
+[sub_resource type="Animation" id="Animation_27bay"]
+resource_name = "wand_appear"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1040, 511.99997), Vector2(1035, 475), Vector2(1035, 436)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wand:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.47222218), Vector2(1.469, 1.2), Vector2(1.224, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sof0w"]
+_data = {
+&"RESET": SubResource("Animation_gyffv"),
+&"open_chest": SubResource("Animation_1pe0h"),
+&"wand_appear": SubResource("Animation_27bay")
+}
 
 [node name="level_1" type="Node2D" unique_id=1385152039]
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=1719536020]
+scale = Vector2(10, 10)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAABAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAABAAAAAAAKAAAAAAAAAAAAAAALAAAAAAABAAAAAAAAAAEAAAAAAAEAAAABAAEAAAABAAEAAAACAAEAAAAAAAEAAAADAAEAAAABAAEAAAAEAAEAAAAAAAEAAAAFAAEAAAAAAAAAAAAGAAEAAAABAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAABAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAABAAAAAAALAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAABAAAAAAACAAIAAAAAAAAAAAADAAIAAAABAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAABAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAABAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAABAAAAAAAKAAIAAAAAAAAAAAALAAIAAAABAAAAAAAAAAMAAAAAAAEAAAABAAMAAAABAAEAAAACAAMAAAAAAAEAAAADAAMAAAABAAEAAAAEAAMAAAAAAAEAAAAFAAMAAAABAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAABAAEAAAAIAAMAAAAAAAEAAAAJAAMAAAABAAEAAAAKAAMAAAAAAAEAAAALAAMAAAABAAEAAAAMAAAAAAAAAAAAAAAMAAEAAAABAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAABAAAAAAAAAAQAAAAAAAAAAAABAAQAAAABAAAAAAACAAQAAAAAAAAAAAADAAQAAAABAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAABAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAABAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAABAAAAAAAKAAQAAAAAAAAAAAALAAQAAAABAAAAAAAMAAQAAAAAAAAAAAAAAAUAAAAAAAEAAAABAAUAAAABAAEAAAACAAUAAAAAAAEAAAADAAUAAAABAAEAAAAEAAUAAAAAAAEAAAAFAAUAAAABAAEAAAAGAAUAAAAAAAEAAAAHAAUAAAABAAEAAAAIAAUAAAAAAAEAAAAJAAUAAAABAAEAAAAKAAUAAAAAAAEAAAALAAUAAAABAAEAAAAMAAUAAAAAAAEAAAAAAAYAAAAAAAAAAAABAAYAAAABAAAAAAACAAYAAAAAAAAAAAADAAYAAAABAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAABAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAABAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAABAAAAAAAKAAYAAAAAAAAAAAALAAYAAAABAAAAAAAMAAYAAAAAAAAAAAAAAAcAAAAAAAEAAAABAAcAAAABAAEAAAACAAcAAAAAAAEAAAADAAcAAAABAAEAAAAEAAcAAAAAAAEAAAAFAAcAAAABAAEAAAAGAAcAAAAAAAEAAAAHAAcAAAABAAEAAAAIAAcAAAAAAAEAAAAJAAcAAAABAAEAAAAKAAcAAAAAAAEAAAALAAcAAAABAAEAAAAMAAcAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_tcxjo")
+
+[node name="princess" parent="." unique_id=2114977263 instance=ExtResource("1_hbghi")]
+position = Vector2(338, 276)
+
+[node name="Chest" type="Area2D" parent="." unique_id=88723460 groups=["chests"]]
+script = ExtResource("3_5hph3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest" unique_id=381369999]
+position = Vector2(1043, 580)
+scale = Vector2(2.875, 2.671875)
+texture = ExtResource("4_j7kpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest" unique_id=207477346]
+position = Vector2(1031, 570.125)
+shape = SubResource("RectangleShape2D_tcxjo")
+
+[node name="Wand" type="Sprite2D" parent="Chest" unique_id=1921519979]
+material = SubResource("ShaderMaterial_tcxjo")
+position = Vector2(1040, 511.99997)
+scale = Vector2(0.5, 0.47222218)
+texture = ExtResource("5_bjebc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chest" unique_id=1723221369]
+libraries/ = SubResource("AnimationLibrary_sof0w")
