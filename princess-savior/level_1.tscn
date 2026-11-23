@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b2udgngdmqpxi" path="res://player.tscn" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://c0po5t1x1gnba" path="res://Art/background-level1.png" id="2_hn12h"]
-[ext_resource type="Script" uid="uid://lymqucmttfdw" path="res://chest.gd" id="3_5hph3"]
+[ext_resource type="Script" uid="uid://d28bwaa1w5o5u" path="res://chest.gd" id="3_5hph3"]
 [ext_resource type="Texture2D" uid="uid://cydlmhyidp2bg" path="res://Art/box-close.png" id="4_j7kpp"]
 [ext_resource type="Texture2D" uid="uid://bqfl5g5kged6b" path="res://Art/wand.png" id="5_bjebc"]
-[ext_resource type="Shader" uid="uid://7qemj7y0jo7h" path="res://level_1.gdshader" id="5_j7kpp"]
+[ext_resource type="Shader" uid="uid://cs66q412bj3dh" path="res://level_1.gdshader" id="5_j7kpp"]
 [ext_resource type="Texture2D" uid="uid://c55ocykhhgvd5" path="res://Art/box-open.png" id="6_5rr72"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihfcg"]
