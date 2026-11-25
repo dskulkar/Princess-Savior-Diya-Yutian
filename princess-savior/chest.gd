@@ -4,6 +4,8 @@ extends Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var wand: Sprite2D = $Wand
 
+signal chest_opened
+
 var is_open: bool = false
 var wand_collected: bool = false
 var player_nearby: bool = false
@@ -57,7 +59,7 @@ func open_chest() -> void:
 
 	is_open = true
 	print("Opening chest...")
-
+	chest_opened.emit()
 	# Play chest opening animation
 	animation_player.play("open_chest")
 	await animation_player.animation_finished
@@ -92,3 +94,7 @@ func collect_wand() -> void:
 	wand.remove_from_group("wands")
 
 	print("Magic wand collected!")
+
+
+func _on_chest_opened() -> void:
+	pass # Replace with function body.
