@@ -1,3 +1,80 @@
 [gd_scene format=3 uid="uid://bf8u0hcydgh77"]
 
-[node name="main" type="Node2D" unique_id=2001416159]
+[ext_resource type="Script" uid="uid://c16p2bapgffwo" path="res://main.gd" id="1_4c57u"]
+[ext_resource type="Texture2D" uid="uid://dghsvavnu14yq" path="res://Art/background.png" id="1_272bh"]
+[ext_resource type="Texture2D" uid="uid://b58cgq3tw0c50" path="res://Art/title.png" id="2_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cc4x80w715jut" path="res://Art/princess1.png" id="3_kek77"]
+[ext_resource type="Texture2D" uid="uid://bgrbnw0oqaxwn" path="res://Art/princess2.png" id="4_4c57u"]
+[ext_resource type="Texture2D" uid="uid://ch7sjb111x72u" path="res://Art/princess3.png" id="5_efxa6"]
+[ext_resource type="Texture2D" uid="uid://4paa4vtl2t52" path="res://Art/princess4.png" id="6_dg77c"]
+[ext_resource type="Script" uid="uid://dra5ktomss71p" path="res://menu_princess.gd" id="7_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://c5m0lwhehwx8x" path="res://Art/Play.png" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://ce5u7yhxhw8hb" path="res://Art/Quit.png" id="10_dg77c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w48qg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kek77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4c57u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_efxa6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dg77c")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="main" type="Control" unique_id=1831463383]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4c57u")
+
+[node name="Background" type="TextureRect" parent="." unique_id=342838966]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 1163.0
+offset_bottom = 651.0
+texture = ExtResource("1_272bh")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Title" type="TextureRect" parent="." unique_id=700728796]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 56.0
+offset_right = 970.0
+offset_bottom = 467.0
+texture = ExtResource("2_5vw27")
+
+[node name="Princess" type="AnimatedSprite2D" parent="." unique_id=1832165850]
+position = Vector2(390, 585)
+sprite_frames = SubResource("SpriteFrames_w48qg")
+animation = &"walk"
+script = ExtResource("7_ycdy4")
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=780883590]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 342.0
+offset_right = 452.0
+offset_bottom = 484.0
+button_mask = 7
+texture_normal = ExtResource("9_efxa6")
+
+[node name="QuitButton" type="TextureButton" parent="." unique_id=763036291]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 355.0
+offset_right = 701.0
+offset_bottom = 401.0
+texture_normal = ExtResource("10_dg77c")
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

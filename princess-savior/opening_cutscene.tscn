@@ -1,10 +1,24 @@
 [gd_scene format=3 uid="uid://d28puayv6s16m"]
 
-[ext_resource type="Script" path="res://opening_cutscene.gd" id="1_e8074"]
-[ext_resource type="Texture2D" path="res://Art/Crown.png" id="2_ufc1a"]
+[ext_resource type="Texture2D" uid="uid://pt5i1unnhls4" path="res://Art/dragon breathing fire1.png" id="2_68hdd"]
+[ext_resource type="Texture2D" uid="uid://c67rgu05fm6cy" path="res://Art/Crown.png" id="2_ufc1a"]
+[ext_resource type="Texture2D" uid="uid://id1mexdwqeo3" path="res://Art/dragon breathing fire2.png" id="3_vmcxx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcxjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_68hdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vmcxx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="OpeningCutscene" type="Node2D" unique_id=1151717786]
-script = ExtResource("1_e8074")
 
 [node name="ackground" type="Sprite2D" parent="." unique_id=2090741073]
 
@@ -20,3 +34,12 @@ offset_bottom = 23.0
 [node name="SkipButton" type="Button" parent="." unique_id=1497911656]
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="Dragon" type="AnimatedSprite2D" parent="." unique_id=2036532629]
+sprite_frames = SubResource("SpriteFrames_tcxjo")
+frame = 1
+frame_progress = 0.8524399
+
+[node name="Letter" type="Sprite2D" parent="." unique_id=535370369]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=693021216]
