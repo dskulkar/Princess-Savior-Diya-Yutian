@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bqfl5g5kged6b" path="res://Art/wand.png" id="5_bjebc"]
 [ext_resource type="Shader" uid="uid://cs66q412bj3dh" path="res://level_1.gdshader" id="5_j7kpp"]
 [ext_resource type="Texture2D" uid="uid://c55ocykhhgvd5" path="res://Art/box-open.png" id="6_5rr72"]
+[ext_resource type="Script" uid="uid://jyu2pa0lcwih" path="res://control.gd" id="9_1pe0h"]
 [ext_resource type="Texture2D" uid="uid://da6tlvqkyo1xt" path="res://Art/diamond.png" id="9_gyffv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihfcg"]
@@ -168,6 +169,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("9_1pe0h")
 
 [node name="diamond" type="Sprite2D" parent="Control" unique_id=1474351735]
 position = Vector2(1105, 65)
@@ -177,3 +179,5 @@ texture = ExtResource("9_gyffv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/diamond" unique_id=526281276]
 position = Vector2(-7.1641774, 0)
 shape = SubResource("CircleShape2D_kfubk")
+
+[connection signal="current_animation_changed" from="Chest/AnimationPlayer" to="Control" method="_on_animation_player_current_animation_changed"]
